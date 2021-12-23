@@ -8,3 +8,6 @@ You can also try the AR mode when referring to it from the browser of your Andro
 
 # Demo Page
 https://unsolublesugar.github.io/blender-model-viewer/
+
+What you see on this demo page is the first 3D model I ever modeled using Blender. The learning and creation process is described in the article details below.  
+https://synamon.hatenablog.com/entry/blender-introduction
