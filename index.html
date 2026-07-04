@@ -88,6 +88,37 @@
                 opacity: 1;
                 visibility: visible;
             }
+            .ar-button {
+                position: absolute;
+                bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                min-height: 52px;
+                padding: 14px 28px;
+                border: none;
+                border-radius: 999px;
+                background: #2A9D8F;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                color: #FFFFFF;
+                font-size: 1rem;
+                font-weight: 700;
+                cursor: pointer;
+            }
+            .ar-button:active {
+                transform: translateX(-50%) scale(0.96);
+            }
+            .ar-button svg {
+                width: 22px;
+                height: 22px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.6;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
         </style>
         <script type="module"
             src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
@@ -122,6 +153,13 @@
                     data-visibility-attribute="visible"
                     aria-label="チェアの説明">
                     <span class="annotation">セットのチェア。座面はミントグリーン</span>
+                </button>
+                <button slot="ar-button" class="ar-button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3 4.5 7.05v8.1L12 19.2l7.5-4.05v-8.1L12 3z"/>
+                        <path d="M4.5 7.05 12 11.1l7.5-4.05M12 11.1v8.1"/>
+                    </svg>
+                    ARで見る
                 </button>
             </model-viewer>
         </div>
