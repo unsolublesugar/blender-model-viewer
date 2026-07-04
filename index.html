@@ -12,12 +12,52 @@
         <meta property="og:image" content="https://unsolublesugar.github.io/blender-model-viewer/og.png">
         <meta name="twitter:card" content="summary_large_image">
         <style>
-            body { margin: 0; }
+            body {
+                margin: 0;
+                font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+            }
+            .site-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                pointer-events: none;
+            }
+            .site-nav a {
+                pointer-events: auto;
+                text-decoration: none;
+            }
+            .brand {
+                color: #222222;
+                font-size: 0.95rem;
+                font-weight: 700;
+            }
+            .nav-link {
+                padding: 8px 16px;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(6px);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+                color: #2A9D8F;
+                font-size: 0.85rem;
+                font-weight: 700;
+            }
+            .nav-link:hover { background: #FFFFFF; }
         </style>
         <script type="module"
             src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
     </head>
     <body>
+        <nav class="site-nav">
+            <a class="brand" href="./">Blender Model Viewer</a>
+            <a class="nav-link" href="./models/">モデル一覧 →</a>
+        </nav>
         <div style="width:100%; margin:0 auto; height:100vh; height:100dvh;">
             <model-viewer
                 alt="desk_chair"

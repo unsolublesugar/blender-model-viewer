@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>モデル一覧 | Blender Model Viewer</title>
+        <meta name="description" content="Blenderで作成した3Dモデルの一覧。各モデルはブラウザで閲覧でき、スマホならARモードで現実空間に配置できます。">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="モデル一覧 | Blender Model Viewer">
+        <meta property="og:description" content="Blenderで作成した3Dモデルの一覧。各モデルはブラウザで閲覧でき、スマホならARモードで現実空間に配置できます。">
+        <meta property="og:url" content="https://unsolublesugar.github.io/blender-model-viewer/models/">
+        <meta property="og:image" content="https://unsolublesugar.github.io/blender-model-viewer/og.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <style>
+            :root {
+                --bg: #F5F5F5;
+                --card-bg: #FFFFFF;
+                --thumb-bg: #ECECEC;
+                --text: #222222;
+                --text-sub: #666666;
+                --accent: #2A9D8F;
+            }
+            * { box-sizing: border-box; }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--text);
+                font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+            }
+            .site-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 16px 24px;
+            }
+            .brand {
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--text);
+                text-decoration: none;
+            }
+            .brand:hover { color: var(--accent); }
+            main {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 8px 24px 48px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin: 8px 0 4px;
+            }
+            .lead {
+                margin: 0 0 24px;
+                color: var(--text-sub);
+                font-size: 0.9rem;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+            .card {
+                display: block;
+                background: var(--card-bg);
+                border-radius: 12px;
+                overflow: hidden;
+                text-decoration: none;
+                color: inherit;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+                transition: transform 0.15s ease, box-shadow 0.15s ease;
+            }
+            .card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            }
+            .card img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: contain;
+                background: var(--thumb-bg);
+            }
+            .card-body { padding: 14px 16px 16px; }
+            .card-title {
+                margin: 0 0 4px;
+                font-size: 1.05rem;
+                font-weight: 700;
+            }
+            .card-desc {
+                margin: 0;
+                font-size: 0.85rem;
+                color: var(--text-sub);
+            }
+            .badge-ar {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 2px 10px;
+                border: 1px solid var(--accent);
+                border-radius: 999px;
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="brand" href="../">Blender Model Viewer</a>
+        </header>
+        <main>
+            <h1>モデル一覧</h1>
+            <p class="lead">Blenderで作成した3Dモデルたち。カードを選ぶとブラウザ上で360°閲覧でき、スマホならARで現実空間に配置できます。</p>
+            <div class="grid">
+                <a class="card" href="../">
+                    <img src="../poster.webp" alt="Desk Chair" loading="lazy">
+                    <div class="card-body">
+                        <h2 class="card-title">Desk Chair</h2>
+                        <p class="card-desc">初めてBlenderでモデリングした机と椅子のセット</p>
+                        <span class="badge-ar">AR対応</span>
+                    </div>
+                </a>
+                <a class="card" href="./amongus/">
+                    <img src="./amongus/poster.webp" alt="Among Us Crewmate" loading="lazy">
+                    <div class="card-body">
+                        <h2 class="card-title">Among Us Crewmate</h2>
+                        <p class="card-desc">Among Usのクルーメイト。バイザーの透過マテリアル入り</p>
+                        <span class="badge-ar">AR対応</span>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </body>
+</html>
