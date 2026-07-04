@@ -67,11 +67,12 @@
             }
             .hotspot .annotation {
                 position: absolute;
-                left: calc(100% + 10px);
-                top: 50%;
-                transform: translateY(-50%);
+                bottom: calc(100% + 10px);
+                left: 50%;
+                transform: translateX(-50%);
                 width: max-content;
-                max-width: 220px;
+                max-width: min(220px, calc(100vw - 32px));
+                overflow-wrap: anywhere;
                 padding: 8px 12px;
                 border-radius: 8px;
                 background: rgba(255, 255, 255, 0.95);
