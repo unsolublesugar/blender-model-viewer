@@ -20,6 +20,7 @@ python3 -m http.server 8000   # ローカルプレビュー → http://localhost
 
 - **ライブラリ**: `@google/model-viewer` を unpkg からバージョン固定で読み込み（更新時は各HTMLの `@x.y.z` を書き換える）
 - **トップページ**: `index.html`（デスクチェアモデル。アセットはリポジトリ直下の `desk_chair.glb`）
+- **`desk_chair.gltf` は削除禁止**: サイト内では未使用だが、外部ブログ記事（synamon.hatenablog.com/entry/blender-introduction）の埋め込みmodel-viewerがこのURLを直接参照している
 - **追加モデル**: `models/<name>/index.html` ＋ 同ディレクトリにモデルアセット（例: `models/amongus/`）
 - **付随画像**: 各ページに `poster.webp`（読み込み中表示）と `og.png`（OGP用 1200×630）を同梱
 - **デプロイ**: GitHub Pages（main ブランチをそのまま公開）
