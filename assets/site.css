@@ -1,0 +1,182 @@
+/* モデルビューアページ共通スタイル */
+
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+}
+
+/* 固定オーバーレイナビ */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    pointer-events: none;
+}
+.site-nav a {
+    pointer-events: auto;
+    text-decoration: none;
+}
+.brand {
+    color: #222222;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+.nav-link {
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #2A9D8F;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.nav-link:hover { background: #FFFFFF; }
+
+/* ホットスポット注釈 */
+.hotspot {
+    display: block;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    background: #2A9D8F;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.hotspot:not([data-visible]) {
+    opacity: 0.25;
+    pointer-events: none;
+}
+.hotspot .annotation {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: min(220px, calc(100vw - 32px));
+    overflow-wrap: anywhere;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #222222;
+    font-size: 0.8rem;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+}
+.hotspot:hover .annotation,
+.hotspot:focus .annotation {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* AR起動ボタン（AR対応端末のみ表示される） */
+.ar-button {
+    position: absolute;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 999px;
+    background: #2A9D8F;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.ar-button:active {
+    transform: translateX(-50%) scale(0.96);
+}
+.ar-button svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* AR用QRコード（AR非対応環境=PCでのみ表示される） */
+.qr-button {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 12px 24px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #2A9D8F;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.qr-button:hover { background: #FFFFFF; }
+.qr-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.qr-overlay[hidden] { display: none; }
+.qr-card {
+    max-width: 320px;
+    padding: 24px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+.qr-title {
+    margin: 0 0 16px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+.qr-code svg {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+.qr-note {
+    margin: 16px 0;
+    color: #666666;
+    font-size: 0.8rem;
+    text-align: left;
+}
+.qr-close {
+    padding: 10px 32px;
+    border: none;
+    border-radius: 999px;
+    background: #2A9D8F;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}

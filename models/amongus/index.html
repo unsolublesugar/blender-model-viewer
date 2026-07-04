@@ -11,116 +11,8 @@
         <meta property="og:url" content="https://unsolublesugar.github.io/blender-model-viewer/models/amongus/">
         <meta property="og:image" content="https://unsolublesugar.github.io/blender-model-viewer/models/amongus/og.png">
         <meta name="twitter:card" content="summary_large_image">
-        <style>
-            body {
-                margin: 0;
-                font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
-            }
-            .site-nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 10;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 12px 16px;
-                pointer-events: none;
-            }
-            .site-nav a {
-                pointer-events: auto;
-                text-decoration: none;
-            }
-            .brand {
-                color: #222222;
-                font-size: 0.95rem;
-                font-weight: 700;
-            }
-            .nav-link {
-                padding: 8px 16px;
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                border-radius: 999px;
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(6px);
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-                color: #2A9D8F;
-                font-size: 0.85rem;
-                font-weight: 700;
-            }
-            .nav-link:hover { background: #FFFFFF; }
-            .hotspot {
-                display: block;
-                width: 18px;
-                height: 18px;
-                padding: 0;
-                border: 2px solid #FFFFFF;
-                border-radius: 50%;
-                background: #2A9D8F;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-                cursor: pointer;
-                transition: opacity 0.3s;
-            }
-            .hotspot:not([data-visible]) {
-                opacity: 0.25;
-                pointer-events: none;
-            }
-            .hotspot .annotation {
-                position: absolute;
-                bottom: calc(100% + 10px);
-                left: 50%;
-                transform: translateX(-50%);
-                width: max-content;
-                max-width: min(220px, calc(100vw - 32px));
-                overflow-wrap: anywhere;
-                padding: 8px 12px;
-                border-radius: 8px;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-                color: #222222;
-                font-size: 0.8rem;
-                text-align: left;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.2s;
-            }
-            .hotspot:hover .annotation,
-            .hotspot:focus .annotation {
-                opacity: 1;
-                visibility: visible;
-            }
-            .ar-button {
-                position: absolute;
-                bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                min-height: 52px;
-                padding: 14px 28px;
-                border: none;
-                border-radius: 999px;
-                background: #2A9D8F;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-                color: #FFFFFF;
-                font-size: 1rem;
-                font-weight: 700;
-                cursor: pointer;
-            }
-            .ar-button:active {
-                transform: translateX(-50%) scale(0.96);
-            }
-            .ar-button svg {
-                width: 22px;
-                height: 22px;
-                fill: none;
-                stroke: currentColor;
-                stroke-width: 1.6;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-            }
-        </style>
+        <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+        <link rel="stylesheet" href="../../assets/site.css">
         <script type="module"
             src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
     </head>
@@ -164,5 +56,16 @@
                 </button>
             </model-viewer>
         </div>
+        <button class="qr-button" hidden>スマホでARを試す</button>
+        <div class="qr-overlay" hidden>
+            <div class="qr-card">
+                <p class="qr-title">スマホでARを試す</p>
+                <div class="qr-code"></div>
+                <p class="qr-note">スマホのカメラでこのQRコードを読み取るとこのページが開きます。「ARで見る」ボタンからARモードを起動できます。</p>
+                <button class="qr-close">閉じる</button>
+            </div>
+        </div>
+        <script src="../../assets/vendor/qrcode.js"></script>
+        <script src="../../assets/ar-qr.js"></script>
     </body>
 </html>
