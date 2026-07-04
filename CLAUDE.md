@@ -14,18 +14,21 @@ Blenderで作成した3Dモデルを Google の [`<model-viewer>`](https://githu
 python3 -m http.server 8000   # ローカルプレビュー → http://localhost:8000/
 ```
 
-※ 各HTMLの `<model-viewer>` の `src` は GitHub Pages の絶対URL（`https://unsolublesugar.github.io/blender-model-viewer/...`）を指しているため、ローカルプレビューでもモデルは公開サイトから読み込まれる。
+モデルの `src` は相対パスのため、ローカルプレビューでも手元のモデルファイルが読み込まれる。
 
 ## 構成概要
 
-- **トップページ**: `index.html`（デスクチェアモデルを表示。アセットはリポジトリ直下の `desk_chair.gltf` / `.glb`）
-- **追加モデル**: `models/<name>/index.html` ＋ 同ディレクトリに `.gltf` アセット（例: `models/amongus/`）
+- **ライブラリ**: `@google/model-viewer` を unpkg からバージョン固定で読み込み（更新時は各HTMLの `@x.y.z` を書き換える）
+- **トップページ**: `index.html`（デスクチェアモデル。アセットはリポジトリ直下の `desk_chair.glb`）
+- **追加モデル**: `models/<name>/index.html` ＋ 同ディレクトリにモデルアセット（例: `models/amongus/`）
+- **付随画像**: 各ページに `poster.webp`（読み込み中表示）と `og.png`（OGP用 1200×630）を同梱
 - **デプロイ**: GitHub Pages（main ブランチをそのまま公開）
 - **公開URL**: <https://unsolublesugar.github.io/blender-model-viewer/>
 
 ## モデル追加ワークフロー
 
-1. `models/<name>/` を作成し、`.gltf` ファイルを配置
+1. `models/<name>/` を作成し、`.glb`（推奨）または `.gltf` ファイルを配置
 2. 既存のモデルページ（例: `models/amongus/index.html`）をコピーして `index.html` を作成
-3. `<title>`・`alt`・`src`（GitHub Pages の絶対URL）を新モデルに合わせて更新
-4. Git push → GitHub Pages に自動反映
+3. `<title>`・OGPメタタグ・`alt`・`src`（相対パス）を新モデルに合わせて更新
+4. `poster.webp` / `og.png` を生成して配置（ローカルサーバー起動中にヘッドレスChromeで実描画からキャプチャ）
+5. Git push → GitHub Pages に自動反映
