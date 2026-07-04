@@ -2,24 +2,73 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>Among Us Crewmate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Among Us Crewmate | Blender Model Viewer</title>
+        <meta name="description" content="Blenderで作成したAmong Us Crewmateの3Dモデルをブラウザで表示。スマホならARモードで現実空間に配置できます。">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Among Us Crewmate | Blender Model Viewer">
+        <meta property="og:description" content="Blenderで作成したAmong Us Crewmateの3Dモデルをブラウザで表示。スマホならARモードで現実空間に配置できます。">
+        <meta property="og:url" content="https://unsolublesugar.github.io/blender-model-viewer/models/amongus/">
+        <meta property="og:image" content="https://unsolublesugar.github.io/blender-model-viewer/models/amongus/og.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+        <link rel="stylesheet" href="../../assets/site.css">
         <script type="module"
-            src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+            src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
     </head>
     <body>
-        <div style="width:100%; margin:0 auto; height:80vh;">
+        <nav class="site-nav">
+            <a class="brand" href="../../">Blender Model Viewer</a>
+            <a class="nav-link" href="../">モデル一覧 →</a>
+        </nav>
+        <div style="width:100%; margin:0 auto; height:100vh; height:100dvh;">
             <model-viewer
-                alt="desk_chair"
-                src="https://unsolublesugar.github.io/blender-model-viewer/models/amongus/amongus.gltf"
-                style="width:100%;height:100%;"
-                background-color="#ECECEC"
+                alt="Among Us Crewmate"
+                src="./amongus.gltf"
+                poster="./poster.webp"
+                style="width:100%;height:100%;background-color:#ECECEC;"
                 shadow-intensity="0.9"
                 exposure="0.7"
                 camera-controls
+                min-camera-orbit="auto auto 35%"
+                max-camera-orbit="auto auto 250%"
+                zoom-sensitivity="1.4"
                 autoplay
                 ar-modes="scene-viewer webxr quick-look"
                 auto-rotate ar>
+                <button class="hotspot" slot="hotspot-visor"
+                    data-position="0m 0.0385m 0.0780m"
+                    data-normal="0.0028m 0.7571m 0.6533m"
+                    data-visibility-attribute="visible"
+                    aria-label="バイザーの説明">
+                    <span class="annotation">バイザーは透過マテリアル（KHR_materials_transmission）</span>
+                </button>
+                <button class="hotspot" slot="hotspot-body"
+                    data-position="-0.0336m -0.0677m 0.0719m"
+                    data-normal="-0.0789m 0.0622m 0.9949m"
+                    data-visibility-attribute="visible"
+                    aria-label="ボディの説明">
+                    <span class="annotation">おなじみのずんぐりボディ。ARで部屋に置けます</span>
+                </button>
+                <button slot="ar-button" class="ar-button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3 4.5 7.05v8.1L12 19.2l7.5-4.05v-8.1L12 3z"/>
+                        <path d="M4.5 7.05 12 11.1l7.5-4.05M12 11.1v8.1"/>
+                    </svg>
+                    ARで見る
+                </button>
             </model-viewer>
         </div>
+        <button class="qr-button" hidden>スマホでARを試す</button>
+        <div class="qr-overlay" hidden>
+            <div class="qr-card">
+                <p class="qr-title">スマホでARを試す</p>
+                <div class="qr-code"></div>
+                <p class="qr-note">スマホのカメラでこのQRコードを読み取るとこのページが開きます。「ARで見る」ボタンからARモードを起動できます。</p>
+                <button class="qr-close">閉じる</button>
+            </div>
+        </div>
+        <script src="../../assets/vendor/qrcode.js"></script>
+        <script src="../../assets/ar-qr.js"></script>
     </body>
 </html>
