@@ -61,7 +61,8 @@ body {
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
-    transform: translateX(-50%);
+    /* --shift-x は hotspot-fit.js が画面内に収まるよう設定する */
+    transform: translateX(calc(-50% + var(--shift-x, 0px)));
     width: max-content;
     max-width: min(220px, calc(100vw - 32px));
     overflow-wrap: anywhere;
@@ -75,6 +76,10 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s;
+}
+.hotspot .annotation.annotation--below {
+    bottom: auto;
+    top: calc(100% + 10px);
 }
 .hotspot:hover .annotation,
 .hotspot:focus .annotation {
