@@ -59,6 +59,19 @@
                 </button>
             </model-viewer>
         </div>
+        <div class="viewer-controls" role="group" aria-label="ビューア操作">
+            <div class="vc-zoom">
+                <button class="vc-btn" data-action="zoom-in" aria-label="拡大">＋</button>
+                <button class="vc-btn" data-action="zoom-out" aria-label="縮小">－</button>
+            </div>
+            <div class="vc-pad">
+                <button class="vc-btn" data-action="up" aria-label="上から見る">↑</button>
+                <button class="vc-btn" data-action="left" aria-label="左に回す">←</button>
+                <button class="vc-btn" data-action="reset" aria-label="視点をリセット">⟲</button>
+                <button class="vc-btn" data-action="right" aria-label="右に回す">→</button>
+                <button class="vc-btn" data-action="down" aria-label="下から見る">↓</button>
+            </div>
+        </div>
         <button class="qr-button" hidden>スマホでARを試す</button>
         <div class="qr-overlay" hidden>
             <div class="qr-card">
@@ -71,5 +84,6 @@
         <script src="./assets/vendor/qrcode.js"></script>
         <script src="./assets/ar-qr.js"></script>
         <script src="./assets/hotspot-fit.js"></script>
+        <script src="./assets/viewer-controls.js"></script>
     </body>
 </html>
