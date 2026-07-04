@@ -49,6 +49,45 @@
                 font-weight: 700;
             }
             .nav-link:hover { background: #FFFFFF; }
+            .hotspot {
+                display: block;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border: 2px solid #FFFFFF;
+                border-radius: 50%;
+                background: #2A9D8F;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+            .hotspot:not([data-visible]) {
+                opacity: 0.25;
+                pointer-events: none;
+            }
+            .hotspot .annotation {
+                position: absolute;
+                left: calc(100% + 10px);
+                top: 50%;
+                transform: translateY(-50%);
+                width: max-content;
+                max-width: 220px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                color: #222222;
+                font-size: 0.8rem;
+                text-align: left;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s;
+            }
+            .hotspot:hover .annotation,
+            .hotspot:focus .annotation {
+                opacity: 1;
+                visibility: visible;
+            }
         </style>
         <script type="module"
             src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
@@ -70,6 +109,20 @@
                 autoplay
                 ar-modes="scene-viewer webxr quick-look"
                 auto-rotate ar>
+                <button class="hotspot" slot="hotspot-visor"
+                    data-position="0m 0.3851m 0.7803m"
+                    data-normal="0.0028m 0.7571m 0.6533m"
+                    data-visibility-attribute="visible"
+                    aria-label="バイザーの説明">
+                    <span class="annotation">バイザーは透過マテリアル（KHR_materials_transmission）</span>
+                </button>
+                <button class="hotspot" slot="hotspot-body"
+                    data-position="-0.3355m -0.6774m 0.7188m"
+                    data-normal="-0.0789m 0.0622m 0.9949m"
+                    data-visibility-attribute="visible"
+                    aria-label="ボディの説明">
+                    <span class="annotation">おなじみのずんぐりボディ。ARで部屋に置けます</span>
+                </button>
             </model-viewer>
         </div>
     </body>
