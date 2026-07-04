@@ -185,3 +185,53 @@ body {
     font-weight: 700;
     cursor: pointer;
 }
+
+/* ビューア操作コントロール（ズーム±・視点移動・リセット） */
+.viewer-controls {
+    position: fixed;
+    right: 12px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.vc-zoom {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.vc-pad {
+    display: grid;
+    grid-template-areas:
+        ". up ."
+        "left reset right"
+        ". down .";
+    gap: 6px;
+}
+.vc-pad [data-action="up"] { grid-area: up; }
+.vc-pad [data-action="left"] { grid-area: left; }
+.vc-pad [data-action="reset"] { grid-area: reset; }
+.vc-pad [data-action="right"] { grid-area: right; }
+.vc-pad [data-action="down"] { grid-area: down; }
+.vc-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #2A9D8F;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+.vc-btn:hover { background: #FFFFFF; }
+.vc-btn:active { transform: scale(0.92); }
